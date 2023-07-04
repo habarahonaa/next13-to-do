@@ -17,21 +17,23 @@ export default function TodoItem({
   toggleTodo,
 }: TodoItemProps) {
   return (
-    <li className="flex gap-2 items-center rounded-md drop-shadow p-6 bg-stone-100">
-      <input
-        id={id}
-        type="checkbox"
-        className="cursor-pointer peer"
-        defaultChecked={completed}
-        onChange={(e) => toggleTodo(id, e.target.checked)}
-      ></input>
-      <div className="flex flex-col">
+    <li className="flex flex-col gap-2 rounded-md drop-shadow p-6 bg-stone-100">
+      <div className="flex gap-2 items-center">
+        <input
+          id={id}
+          type="checkbox"
+          className="cursor-pointer peer"
+          defaultChecked={completed}
+          onChange={(e) => toggleTodo(id, e.target.checked)}
+        ></input>
         <label
           htmlFor={id}
           className="font-medium peer-checked:line-through peer-checked:text-slate-500"
         >
           {title}
         </label>
+      </div>
+      <div>
         {description && (
           <div>
             <p>{description}</p>
